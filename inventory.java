@@ -18,23 +18,23 @@ public class inventory {
     void showproducts(){
         for (product p: products) {
 
-            System.out.printf("%s %d ",p.name,p.price);
+            System.out.printf("%s %d \n",p.name,p.price);
 
 
         }
     }
 
-    boolean is_available(String s){
+    int is_available(String s){
 
         for (product p: products) {
 
             if(p.name.equalsIgnoreCase(s)){
                 if (p.stock_amount > 0){
-                    return true;
+                    return p.price;
                 }
             }
         }
-        return  false;
+        return  0;
     }
 
     boolean is_deposite_sufficient(String s,int depos){
@@ -50,6 +50,21 @@ public class inventory {
         return  false;
 
     }
+    boolean is_changes_needed(String s,int depos){
+
+        for (product p: products) {
+
+            if(p.name.equalsIgnoreCase(s)){
+                if (depos == p.price){
+                    return false;
+                }
+            }
+        }
+        return  true;
+
+    }
+
+
 
     boolean dispatch_product(String s){
 

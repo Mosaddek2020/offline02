@@ -6,7 +6,7 @@ public class product {
 
     public product(String s,int p,int a){
         name = s;
-        p = price;
+         price = p;
         stock_amount = a;
     }
 
